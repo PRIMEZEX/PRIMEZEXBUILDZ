@@ -3,73 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBSITE NAME HERE</title>
+    <title contenteditable="true">Craftland Hub</title>
     <style>
         body {
+            background-color: #121212;
+            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1e1e1e;
-            color: #ffffff;
+            transition: background-color 0.3s;
         }
         header {
-            background-color: #2e2e2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1E1E1E;
+        }
+        header img {
+            height: 50px; /* Logo placeholder */
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .main {
+            padding: 20px;
+        }
+        section {
+            margin: 20px 0;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #2E2E2E;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .code, .script {
+            background-color: #3E3E3E;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .asset {
+            border: 1px dashed white;
+            margin: 10px 0;
             padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        nav {
-            display: flex;
-        }
-        nav a {
-            color: #ffffff;
-            padding: 10px;
-            text-decoration: none;
-            border: 1px solid transparent;
-            transition: border 0.3s;
-        }
-        nav a:hover {
-            border: 1px solid #ffffff;
-        }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        .rounded {
-            border-radius: 8px;
-            background-color: #3e3e3e;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        .editable {
-            border: 2px dashed #ffffff;
-            background-color: #444444;
-            padding: 10px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+        /* Mobile Styles */
         @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 5px 0;
+            header, nav {
+               flex-direction: column;
+               align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="LOGO IMAGE HERE" alt="Logo" height="50">
-        </div>
+        <img src="logo-placeholder.png" alt="Logo" contenteditable="true">
         <nav>
             <a href="#home">Home</a>
             <a href="#codes">Codes</a>
@@ -77,40 +88,45 @@
             <a href="#assets">Assets</a>
         </nav>
     </header>
-    <div class="container">
-        <section id="home" class="rounded editable">
-            <h1>WEBSITE NAME HERE</h1>
-            <h2>Edit your subtitle here</h2>
+    <main class="main">
+        <section id="home">
+            <h1 contenteditable="true">Welcome to Craftland Hub</h1>
+            <h2 contenteditable="true">Your source for all things Craftland</h2>
         </section>
-        <section id="codes" class="rounded">
-            <h3>Codes</h3>
-            <div class="editable">
-                <pre>ADD CODE HERE</pre>
-                <button onclick="copyToClipboard('ADD CODE HERE')">Copy</button>
+        <section id="codes">
+            <h1>Craftland Codes</h1>
+            <div class="code" contenteditable="true">
+                <p>Edit this code!</p>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <script>
+                function copyCode(btn) {
+                    const codeBox = btn.parentElement;
+                    const code = codeBox.textContent.replace('Copy', '').trim();
+                    navigator.clipboard.writeText(code);
+                    btn.innerText = 'Copied!';
+                    setTimeout(() => btn.innerText = 'Copy', 2000);
+                }
+            </script>
+        </section>
+        <section id="scripts">
+            <h1>Scripts</h1>
+            <div class="script" contenteditable="true">
+                <p>Edit this script!</p>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             </div>
         </section>
-        <section id="scripts" class="rounded">
-            <h3>Scripts</h3>
-            <div class="editable">
-                <pre>ADD SCRIPT HERE</pre>
-                <button onclick="copyToClipboard('ADD SCRIPT HERE')">Copy</button>
+        <section id="assets">
+            <h1>Assets</h1>
+            <div class="asset" contenteditable="true">
+                <p>Image placeholder</p>
+                <button>Download</button>
             </div>
-        </section>
-        <section id="assets" class="rounded">
-            <h3>Assets</h3>
-            <div class="editable">
-                <img src="ADD ASSET IMAGE HERE" alt="Asset" height="100">
-                <p>ADD ASSET NAME HERE</p>
-                <p>ADD DESCRIPTION HERE</p>
+            <div class="asset" contenteditable="true">
+                <p>Image placeholder</p>
                 <button>Download</button>
             </div>
         </section>
-    </div>
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text);
-            alert('Copied to clipboard!');
-        }
-    </script>
+    </main>
 </body>
 </html>
