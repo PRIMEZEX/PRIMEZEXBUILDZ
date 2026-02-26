@@ -1,74 +1,116 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Craftland Hub</title>
-
-<style>
-
-body{
-background:black;
-color:white;
-font-family:Arial;
-text-align:center;
-}
-
-.box{
-background:#111;
-margin:20px;
-padding:20px;
-border-radius:10px;
-}
-
-img{
-width:200px;
-border-radius:10px;
-}
-
-button{
-padding:10px;
-background:green;
-color:white;
-border:none;
-border-radius:5px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE NAME HERE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        header {
+            background-color: #2e2e2e;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: #ffffff;
+            padding: 10px;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: border 0.3s;
+        }
+        nav a:hover {
+            border: 1px solid #ffffff;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .rounded {
+            border-radius: 8px;
+            background-color: #3e3e3e;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .editable {
+            border: 2px dashed #ffffff;
+            background-color: #444444;
+            padding: 10px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<h1>Craftland Hub</h1>
-
-<div class="box">
-<h2>Craftland Codes</h2>
-
-<p>CODE 1</p>
-<p>CODE 2</p>
-
-</div>
-
-<div class="box">
-
-<h2>Scripts</h2>
-
-<p>Script Function Here</p>
-
-</div>
-
-<div class="box">
-
-<h2>Assets</h2>
-
-<img src="image.jpg">
-
-<br><br>
-
-<button>Download</button>
-
-</div>
-
+    <header>
+        <div class="logo">
+            <img src="LOGO IMAGE HERE" alt="Logo" height="50">
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#codes">Codes</a>
+            <a href="#scripts">Scripts</a>
+            <a href="#assets">Assets</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="home" class="rounded editable">
+            <h1>WEBSITE NAME HERE</h1>
+            <h2>Edit your subtitle here</h2>
+        </section>
+        <section id="codes" class="rounded">
+            <h3>Codes</h3>
+            <div class="editable">
+                <pre>ADD CODE HERE</pre>
+                <button onclick="copyToClipboard('ADD CODE HERE')">Copy</button>
+            </div>
+        </section>
+        <section id="scripts" class="rounded">
+            <h3>Scripts</h3>
+            <div class="editable">
+                <pre>ADD SCRIPT HERE</pre>
+                <button onclick="copyToClipboard('ADD SCRIPT HERE')">Copy</button>
+            </div>
+        </section>
+        <section id="assets" class="rounded">
+            <h3>Assets</h3>
+            <div class="editable">
+                <img src="ADD ASSET IMAGE HERE" alt="Asset" height="100">
+                <p>ADD ASSET NAME HERE</p>
+                <p>ADD DESCRIPTION HERE</p>
+                <button>Download</button>
+            </div>
+        </section>
+    </div>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert('Copied to clipboard!');
+        }
+    </script>
 </body>
-
 </html>
